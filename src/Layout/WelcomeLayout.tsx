@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import LogoLoop from "../Components/LogoLoop";
 import {
   SiReact,
-  SiNextdotjs,
   SiTypescript,
   SiTailwindcss,
 } from "react-icons/si";

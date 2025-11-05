@@ -110,11 +110,8 @@ const Login = () => {
           navigate(from, { replace: true });
         },
         onError: (err) => {
-          toast.error(
-            err.response?.data?.message || "Login failed",
-            errorToastOptions
-          );
-          console.error("Login failed:", err.response?.data);
+          toast.error("Login failed", errorToastOptions);
+          console.error("Login failed:", err);
         },
       }
     );

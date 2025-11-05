@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import { useAuth } from "../Provider/AuthProvider";
-import { Menu, X, Sparkles, DoorOpenIcon } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 
 const Navbar = () => {
   const location = useLocation();

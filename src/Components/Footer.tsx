@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 import {
-  Calendar,
   MapPin,
   Mail,
   Phone,

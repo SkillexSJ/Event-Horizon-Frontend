@@ -131,10 +131,7 @@ const Signup = () => {
           navigate(from, { replace: true });
         },
         onError: (err) => {
-          toast.error(
-            err.response?.data?.message || "Signup failed",
-            errorToastOptions
-          );
+          toast.error("Signup failed", errorToastOptions);
           console.error("Signup failed:", err);
         },
       }
