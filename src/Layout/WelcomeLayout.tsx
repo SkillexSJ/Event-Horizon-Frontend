@@ -4,11 +4,7 @@ import { Sparkles, ArrowRight } from "lucide-react";
 import RotatingText from "../Components/RotatingText";
 import { useEffect, useState } from "react";
 import LogoLoop from "../Components/LogoLoop";
-import {
-  SiReact,
-  SiTypescript,
-  SiTailwindcss,
-} from "react-icons/si";
+import { SiReact, SiTypescript, SiTailwindcss } from "react-icons/si";
 import { FaGolang } from "react-icons/fa6";
 
 const techLogos = [
@@ -97,7 +93,8 @@ export default function WelcomePage() {
                 texts={[
                   "WELCOME TO",
                   "EVENT HORIZON",
-                  "YOUR NEXT TICKET TO FUN",
+                  "YOUR NEXT TICKET",
+                  "GRAB IT NOW!",
                 ]}
                 mainClassName="px-3 sm:px-4 md:px-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white overflow-hidden py-1 sm:py-2 md:py-2 justify-center rounded-xl shadow-custom-glow"
                 staggerFrom={"last"}
