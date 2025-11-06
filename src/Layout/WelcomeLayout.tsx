@@ -81,33 +81,38 @@ export default function WelcomePage() {
               </span>
             </div>
 
-            {/* Main Heading with Rotating Text */}
+            {/* Main Heading with Rotating Text in Middle */}
             <div
-              className={`flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 transition-all duration-1000 delay-200 ${
+              className={`mb-6 transition-all duration-1000 delay-200 ${
                 isLoaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
               }`}
             >
-              <RotatingText
-                texts={[
-                  "WELCOME TO",
-                  "EVENT HORIZON",
-                  "YOUR NEXT TICKET",
-                  "GRAB IT NOW!",
-                ]}
-                mainClassName="px-3 sm:px-4 md:px-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white overflow-hidden py-1 sm:py-2 md:py-2 justify-center rounded-xl shadow-custom-glow"
-                staggerFrom={"last"}
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                exit={{ y: "-120%" }}
-                staggerDuration={0.03}
-                auto={true}
-                elementLevelClassName="inline-block"
-                splitLevelClassName="overflow-hidden"
-                transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                rotationInterval={5000}
-              />
+              <h1 className="text-5xl  md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight text-white text-center">
+                <span className="block mb-2">Discover Your</span>
+                <span className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                  <RotatingText
+                    texts={["Next", "Magic", "Dream", "Prime", "Great"]}
+                    mainClassName="text-gradient overflow-hidden"
+                    staggerFrom={"last"}
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    exit={{ y: "-120%" }}
+                    staggerDuration={0.03}
+                    auto={true}
+                    elementLevelClassName="inline-block"
+                    splitLevelClassName="overflow-hidden"
+                    transition={{
+                      type: "spring",
+                      damping: 25,
+                      stiffness: 300,
+                    }}
+                    rotationInterval={3000}
+                  />
+                  <span>Event</span>
+                </span>
+              </h1>
             </div>
 
             {/* Subtitle */}
@@ -118,8 +123,8 @@ export default function WelcomePage() {
                   : "opacity-0 translate-y-4"
               }`}
             >
-              Discover exclusive events, book experiences, and create
-              unforgettable moments in just a few clicks.
+              Find, book, and manage exclusive events. From live concerts to
+              tech conferences, your next adventure starts here.
             </p>
 
             {/* CTA Buttons */}
@@ -150,9 +155,9 @@ export default function WelcomePage() {
               </div>
             </div>
 
-            {/* Stats/Features - Wider */}
+            {/* Stats/Features */}
             <div
-              className={`grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto transition-all duration-1000 delay-800 ${
+              className={`grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-5xl mx-auto transition-all duration-1000 delay-800 ${
                 isLoaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
@@ -174,11 +179,11 @@ export default function WelcomePage() {
                   Happy Attendees
                 </div>
               </div>
-              <div className="glass-effect border border-white/10 rounded-2xl p-8 hover:border-brand-accent/50 transition-all duration-300 hover:scale-105">
+              <div className="glass-effect border col-span-2 md:col-auto border-white/10 rounded-2xl p-8 hover:border-brand-accent/50 transition-all duration-300 hover:scale-105">
                 <div className="text-4xl font-bold text-brand-accent mb-2">
                   24/7
                 </div>
-                <div className="text-base text-brand-text-dim">
+                <div className="text-base  text-brand-text-dim">
                   Support Available
                 </div>
               </div>
