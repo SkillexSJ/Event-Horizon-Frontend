@@ -1,6 +1,13 @@
 import { Link } from "react-router";
 import LightRays from "../Components/LightRays";
-import { Sparkles, ArrowRight } from "lucide-react";
+import {
+  Sparkles,
+  ArrowRight,
+  Calendar,
+  Star,
+  Ticket,
+  Trophy,
+} from "lucide-react";
 import RotatingText from "../Components/RotatingText";
 import { useEffect, useState } from "react";
 import LogoLoop from "../Components/LogoLoop";
@@ -59,11 +66,32 @@ export default function WelcomePage() {
         />
       </div>
 
-      {/* Main Content Sections - Scrollable */}
+      {/* Main Content Sections */}
       <div className="relative z-10 w-full">
-        {/* Hero Section - Centered Content */}
-        <section className="min-h-screen w-full flex items-center justify-center py-20 px-4">
-          <div className="w-full max-w-[1400px] mx-auto text-center">
+        {/* Hero Section  */}
+        <section className="min-h-screen w-full flex items-center justify-center py-20 px-4 relative">
+          {/* //!Floating ICON */}
+          <div
+            className="absolute inset-0 pointer-events-none overflow-hidden"
+            aria-hidden="true"
+          >
+            {/* Calendar Icon - Top Left */}
+            <Calendar className="absolute top-[15%] left-[8%] w-12 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24 text-brand-accent/15 animate-[float_6s_ease-in-out_infinite]" />
+
+            {/* Star Icon - Top Right */}
+            <Star className="absolute top-[10%] right-[12%] w-10 h-10 md:w-16 md:h-16 lg:w-20 lg:h-20 text-brand-accent/12 animate-[float_8s_ease-in-out_infinite_1s]" />
+
+            {/* Ticket Icon - Left Side */}
+            <Ticket className="absolute top-[40%] left-[5%] w-14 h-14 md:w-24 md:h-24 lg:w-28 lg:h-28 text-brand-accent/8 animate-[float_7s_ease-in-out_infinite_0.5s]" />
+
+            {/* Trophy Icon - Bottom Right */}
+            <Trophy className="absolute bottom-[15%] right-[8%] w-12 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24 text-brand-accent/10 animate-[float_6.5s_ease-in-out_infinite_0.8s]" />
+
+            {/* Sparkles - Lower Center */}
+            <Sparkles className="absolute bottom-[35%] left-[35%] w-6 h-6 md:w-12 md:h-12 lg:w-14 lg:h-14 text-brand-accent/15 animate-[float_5.5s_ease-in-out_infinite_3s]" />
+          </div>
+
+          <div className="w-full max-w-[1400px] mx-auto text-center relative z-10">
             {/* Badge */}
             <div
               className={`inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2 mb-8 transition-all duration-1000 ${
@@ -81,7 +109,7 @@ export default function WelcomePage() {
               </span>
             </div>
 
-            {/* Main Heading with Rotating Text in Middle */}
+            {/* Main Heading */}
             <div
               className={`mb-6 transition-all duration-1000 delay-200 ${
                 isLoaded
