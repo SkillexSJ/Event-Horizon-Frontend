@@ -9,20 +9,33 @@ import {
   Instagram,
   Sparkles,
 } from "lucide-react";
+import LightRays from "./LightRays";
 
 const Footer = () => {
   return (
-    <footer className="relative bg-grid border-t border-white/10 overflow-hidden w-full">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid opacity-30" aria-hidden="true" />
-
-      {/* Gradient Glow */}
+    <footer className="relative z-10 border-t border-white/10 overflow-hidden w-full">
+      {/* Light Rays Background */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-accent rounded-full opacity-10 blur-3xl"
-        aria-hidden="true"
-      />
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          height: "100%",
+        }}
+      >
+        <LightRays
+          raysOrigin="bottom-center"
+          raysColor="#FF6FD8"
+          raysSpeed={1.2}
+          lightSpread={1.0}
+          rayLength={2.5}
+          followMouse={false}
+          mouseInfluence={0.04}
+          noiseAmount={0.08}
+          distortion={0.03}
+          className="custom-rays"
+        />
+      </div>
 
-      <div className="relative container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div className="relative container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 z-10">
         {/* Main Footer Content */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-12">
           {/* Brand Section */}
