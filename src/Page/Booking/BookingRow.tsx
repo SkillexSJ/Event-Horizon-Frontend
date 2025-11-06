@@ -71,7 +71,8 @@ const BookingRow = ({
           <div className="flex items-center gap-2">
             <CreditCard className="w-4 h-4 text-brand-accent" />
             <span>
-              {booking.quantity}x {booking.ticket_type} • $
+              {booking.quantity}x {booking.ticket_type} •{" "}
+              <span className="text-xl">৳</span>
               {booking.total_paid?.toFixed(2) || "0.00"}
             </span>
           </div>

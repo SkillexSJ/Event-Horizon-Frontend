@@ -183,8 +183,8 @@ const DashboardPage = () => {
   //! Get ALL bookings for admin panel (filtered by host's events)
   const myBookingsData = useMemo(() => {
     //! SET USE KORLAM
-    const myEventIds = new Set(myEvents.map(event => event.id));
-    return bookings.filter(booking => myEventIds.has(booking.event_id));
+    const myEventIds = new Set(myEvents.map((event) => event.id));
+    return bookings.filter((booking) => myEventIds.has(booking.event_id));
   }, [bookings, myEvents]);
 
   //! Loading state
@@ -317,7 +317,8 @@ const DashboardPage = () => {
             </div>
           </div>
           <p className="text-3xl font-bold text-brand-text">
-            ${stats.totalRevenue.toLocaleString()}
+            <span className="text-brand-accent text-4xl">৳</span>{" "}
+            {stats.totalRevenue.toLocaleString()}
           </p>
           <p className="text-xs text-brand-text-dim mt-1">From all events</p>
         </div>
@@ -702,7 +703,8 @@ const DashboardPage = () => {
                           {booking.quantity}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text font-semibold">
-                          ${booking.total_paid?.toFixed(2) || "0.00"}
+                          <span className="text-lg">৳</span>
+                          {booking.total_paid?.toFixed(2) || "0.00"}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text-dim">
                           {booking.booked_at

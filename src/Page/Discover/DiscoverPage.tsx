@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import {
   useGetCategories,
   useGetCategoriesWithEvents,
@@ -30,6 +30,11 @@ const DiscoverPage = () => {
   const [customDateStart, setCustomDateStart] = useState("");
   const [customDateEnd, setCustomDateEnd] = useState("");
   const [sortBy, setSortBy] = useState<SortOption>("relevance");
+
+  //! Newly added
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   //! Get all categories
   const { data: categories, isLoading: categoriesLoading } = useGetCategories();

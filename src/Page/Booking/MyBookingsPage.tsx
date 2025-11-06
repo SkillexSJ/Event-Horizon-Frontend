@@ -64,7 +64,7 @@ const TicketModal = ({ booking, onClose }: TicketModalProps) => {
 
           <div className="bg-white/5 rounded-xl p-6 mb-6">
             <h3 className="text-2xl font-bold text-brand-text mb-4">
-              Event ID: {booking.event_id}
+              Event ID: {booking.event_id.slice(0, 8)}
             </h3>
 
             <div className="space-y-4">
@@ -117,7 +117,8 @@ const TicketModal = ({ booking, onClose }: TicketModalProps) => {
             <div className="flex justify-between items-center mb-2">
               <span className="text-brand-text-dim">Total Paid</span>
               <span className="text-3xl font-bold text-brand-accent">
-                ${booking.total_paid?.toFixed(2) || "0.00"}
+                <span className="text-4xl">৳</span>
+                {booking.total_paid?.toFixed(2) || "0.00"}
               </span>
             </div>
             <div className="flex justify-between items-center text-sm">

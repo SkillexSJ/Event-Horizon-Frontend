@@ -481,7 +481,8 @@ const EventDetailsPage = () => {
               <div className="flex justify-between text-brand-text-dim pt-3 border-t border-white/10">
                 <span className="text-lg">Total:</span>
                 <span className="text-2xl font-bold text-brand-accent">
-                  ${totalPrice.toFixed(2)}
+                  <span className="text-4xl">৳</span>
+                  {totalPrice.toFixed(2)}
                 </span>
               </div>
             </div>
