@@ -24,9 +24,9 @@ const Footer = () => {
 
       <div className="relative container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-12">
           {/* Brand Section */}
-          <div className="lg:col-span-1">
+          <div className="col-span-2 lg:col-span-1">
             <Link to="/" className="inline-block group mb-6">
               <div className="flex items-center gap-3">
                 <Sparkles className="mr-2 w-10 h-10 text-brand-accent" />
@@ -135,7 +135,7 @@ const Footer = () => {
           </div>
 
           {/* Resources */}
-          <div>
+          <div className="hidden md:block">
             <h3 className="text-lg font-bold text-brand-text mb-6 flex items-center gap-2">
               <span className="w-1 h-6 bg-brand-accent rounded-full" />
               Resources
@@ -190,7 +190,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="">
             <h3 className="text-lg font-bold text-brand-text mb-6 flex items-center gap-2">
               <span className="w-1 h-6 bg-brand-accent rounded-full" />
               Get in Touch
@@ -202,7 +202,7 @@ const Footer = () => {
                   className="text-brand-text-dim hover:text-brand-accent transition-colors duration-200 flex items-start gap-3 group"
                 >
                   <Mail className="w-5 h-5 mt-0.5 shrink-0 group-hover:scale-110 transition-transform" />
-                  <span className="break-all">info@eventhub.com</span>
+                  <span className="break-all">www.event-horiozons.app</span>
                 </a>
               </li>
               <li>
@@ -211,17 +211,17 @@ const Footer = () => {
                   className="text-brand-text-dim hover:text-brand-accent transition-colors duration-200 flex items-start gap-3 group"
                 >
                   <Phone className="w-5 h-5 mt-0.5 shrink-0 group-hover:scale-110 transition-transform" />
-                  <span>+1 (234) 567-890</span>
+                  <span>+88012343554</span>
                 </a>
               </li>
               <li className="text-brand-text-dim flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-0.5 shrink-0 text-brand-accent" />
                 <span>
-                  123 Event Street
+                  React Street 123,
                   <br />
-                  New York, NY 10001
+                  Goland
                   <br />
-                  United States
+                  Typescript
                 </span>
               </li>
             </ul>

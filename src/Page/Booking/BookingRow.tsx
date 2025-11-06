@@ -1,5 +1,7 @@
 import { Calendar, CalendarDays, CreditCard, MapPin } from "lucide-react";
+import { useState } from "react";
 import type { Booking } from "../../api/useBooking";
+import { useGetEvent } from "../../api/useEvent";
 
 //! INTERFACE OF BOOKING ROW PROPS
 interface BookingRowProps {
@@ -13,20 +15,34 @@ const BookingRow = ({
   onViewTicket,
   onCancelBooking,
 }: BookingRowProps) => {
+  const { data: event, isLoading, isError } = useGetEvent(booking.event_id);
+  const [imageError, setImageError] = useState(false);
+
+  if (isLoading || isError) return null;
+
   const isCancelled = booking.status === "cancelled";
 
   return (
-    <div className="bg-brand-surface rounded-2xl border border-white/10 p-4 sm:p-6 flex flex-col lg:flex-row items-start lg:items-center gap-6 shadow-lg hover:border-brand-accent/30 transition-all duration-300">
+    <div className="bg-brand-surface w-[400px] md:w-full rounded-2xl border border-white/10 p-4 sm:p-6 flex flex-col lg:flex-row items-start lg:items-center gap-6 shadow-lg hover:border-brand-accent/30 transition-all duration-300">
       <div className="w-full lg:w-40 h-32 rounded-xl overflow-hidden shrink-0 bg-linear-to-br from-brand-accent to-brand-accent-dark">
-        <div className="w-full h-full flex items-center justify-center">
-          <CalendarDays className="w-12 h-12 text-white/50" />
-        </div>
+        {event?.image_url && !imageError ? (
+          <img
+            src={event.image_url}
+            alt={event.name}
+            className="w-full h-full object-cover"
+            onError={() => setImageError(true)}
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <CalendarDays className="w-12 h-12 text-white/50" />
+          </div>
+        )}
       </div>
 
       <div className="flex-1 min-w-0">
         <div className="flex flex-wrap items-start gap-3 mb-3">
           <h3 className="text-xl sm:text-2xl font-bold text-brand-text">
-            Event ID: {booking.event_id}
+            {event?.name || "Event"}
           </h3>
           <span
             className={`px-3 py-1 text-xs font-semibold rounded-full shrink-0 ${

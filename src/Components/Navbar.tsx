@@ -152,7 +152,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-white/10 pt-4 animate-fadeIn">
+          <div className="lg:hidden mt-4 pb-2 bg-brand-bg rounded-bottom border-t border-white/10  animate-fadeIn">
             {/* Mobile Navigation Links */}
             <div className="space-y-1 mb-4">
               {visibleLinks.map((link) => (
@@ -171,10 +171,10 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Auth Section */}
-            <div className="pt-4 border-t border-white/10 space-y-2">
+            <div className="pt-4 border-t flex flex-col items-center justify-center border-white/10 space-y-2">
               {isAuthenticated ? (
                 <>
-                  <div className="flex items-center space-x-3 px-4 py-3 bg-white/5 rounded-lg border border-white/10 mb-2">
+                  <div className="flex w-40 justify-center items-center space-x-3 px-4 py-3 bg-white/5 rounded-lg border border-white/10 mb-2">
                     <div className="w-10 h-10 rounded-full bg-linear-to-br from-brand-accent to-brand-accent-dark flex items-center justify-center text-white font-semibold">
                       {user?.name?.charAt(0).toUpperCase() ||
                         (isHost ? "H" : "U")}
@@ -190,7 +190,7 @@ const Navbar = () => {
                   </div>
                   <button
                     onClick={handleLogout}
-                    className="w-full px-4 py-3 rounded-lg font-semibold text-red-400 bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 transition-all duration-300"
+                    className="w-80 px-4 py-3 rounded-lg font-semibold text-red-400 bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 transition-all duration-300"
                   >
                     Logout
                   </button>

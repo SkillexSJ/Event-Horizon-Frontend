@@ -9,11 +9,13 @@ import {
   X,
   Ticket,
   Calendar,
-  MapPin,
-  QrCode,
   AlertTriangle,
+  User,
+  TicketCheckIcon,
 } from "lucide-react";
 import BookingRow from "./BookingRow.tsx";
+import toast from "react-hot-toast";
+import { toastOptions } from "../../utils/constant.ts";
 
 interface TicketModalProps {
   booking: Booking | null;
@@ -75,7 +77,7 @@ const TicketModal = ({ booking, onClose }: TicketModalProps) => {
               </div>
 
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-brand-accent mt-0.5 shrink-0" />
+                <User className="w-5 h-5 text-brand-accent mt-0.5 shrink-0" />
                 <div>
                   <p className="text-brand-text-dim text-sm">User ID</p>
                   <p className="text-brand-text font-semibold text-xs truncate">
@@ -83,10 +85,20 @@ const TicketModal = ({ booking, onClose }: TicketModalProps) => {
                   </p>
                 </div>
               </div>
+
+              <div className="flex items-start gap-3">
+                <TicketCheckIcon className="w-5 h-5 text-brand-accent mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-brand-text-dim text-sm">Transaction ID</p>
+                  <p className="text-brand-text font-semibold text-xs truncate">
+                    {booking.transaction_id || "N/A"}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-3 md:grid-cols-2 gap-4 mb-6">
             <div className="bg-white/5 rounded-xl p-4">
               <p className="text-brand-text-dim text-sm mb-1">Ticket Type</p>
               <p className="text-brand-text font-bold text-lg">
@@ -127,27 +139,14 @@ const TicketModal = ({ booking, onClose }: TicketModalProps) => {
             </div>
           </div>
 
-          {booking.transaction_id && (
+          {/* {booking.transaction_id && (
             <div className="bg-white/5 rounded-xl p-4 mb-6">
               <p className="text-brand-text-dim text-sm mb-1">Transaction ID</p>
               <p className="text-brand-text font-mono text-sm break-all">
                 {booking.transaction_id}
               </p>
             </div>
-          )}
-
-          <div className="bg-white rounded-xl p-6 flex justify-center mb-4">
-            <div className="w-48 h-48 bg-gray-200 rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <QrCode className="w-16 h-16 text-gray-400 mx-auto mb-2" />
-                <p className="text-gray-500 text-sm font-semibold">QR Code</p>
-              </div>
-            </div>
-          </div>
-          <p className="text-xs text-brand-text-dim text-center mb-6">
-            Scan this QR code at the event entrance for quick check-in
-          </p>
-
+          )} */}
           <button
             onClick={onClose}
             className="w-full bg-brand-accent text-white py-3 rounded-lg font-semibold hover:bg-brand-accent-dark transition"
@@ -242,7 +241,7 @@ export default function MyBookingsPage() {
       onSuccess: () => {
         setShowCancelModal(false);
         setSelectedBooking(null);
-        alert("Booking cancelled and deleted successfully!");
+        toast.success("Booking cancelled successfully", toastOptions);
       },
       onError: (error: Error) => {
         const errorMessage =
@@ -289,7 +288,7 @@ export default function MyBookingsPage() {
     <>
       {/* //! Main Content */}
       <main className="container mx-auto max-w-7xl px-4 py-24 sm:py-32">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto ">
           <div className="text-center sm:text-left mb-10 sm:mb-12">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gradient mb-2">
               My Bookings
@@ -319,7 +318,7 @@ export default function MyBookingsPage() {
               </Link>
             </div>
           ) : (
-            <div className="space-y-6">
+            <div className="space-y-6 flex flex-col items-center">
               {bookings.map((booking) => (
                 <BookingRow
                   key={booking.id}
