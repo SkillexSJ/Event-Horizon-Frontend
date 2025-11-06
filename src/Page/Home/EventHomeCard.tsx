@@ -41,9 +41,9 @@ const EventCardSimple = ({ event }: { event: HomeEvent }) => {
   };
 
   return (
-    <div className="bg-brand-surface rounded-2xl shadow-xl overflow-hidden border border-white/10 group hover:border-brand-accent/50 transition-all duration-300">
+    <div className="bg-brand-surface rounded-2xl shadow-xl overflow-hidden border border-white/10 group hover:border-brand-accent/50 transition-all duration-300 flex flex-col h-full">
       {/* //!Image Section */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 overflow-hidden shrink-0">
         {/* //!Background Gradient (Fallback) */}
         <div className="absolute inset-0 bg-fuchsia-950 to-red-400">
           <div className="w-full h-full flex items-center justify-center">
@@ -66,7 +66,7 @@ const EventCardSimple = ({ event }: { event: HomeEvent }) => {
         <div className="absolute inset-0 z-10 p-4 flex flex-col justify-between">
           {/* Top Row - Category Badge and Live Badge */}
           <div className="flex justify-between items-start">
-            <span className="bg-white/90 backdrop-blur-sm text-purple-600 text-xs font-semibold px-3 py-1.5 rounded-full">
+            <span className="bg-white backdrop-blur-sm text-brand-accent-dark text-xs font-bold px-3 py-1.5 rounded-full">
               {event.category_name}
             </span>
 
@@ -97,18 +97,20 @@ const EventCardSimple = ({ event }: { event: HomeEvent }) => {
       </div>
 
       {/* Event Info */}
-      <div className="p-6">
-        <h3 className="text-2xl font-semibold text-brand-text mb-4 line-clamp-2 group-hover:text-gradient transition-colors duration-300">
-          {event.name}
-        </h3>
+      <div className="p-6 flex flex-col grow">
+        <div className="grow">
+          <h3 className="text-2xl font-semibold text-brand-text mb-4 line-clamp-2 group-hover:text-gradient transition-colors duration-300">
+            {event.name}
+          </h3>
 
-        {/* Location */}
-        <div className="flex items-center text-brand-text-dim mb-6">
-          <MapPin className="w-5 h-5 mr-2 shrink-0" />
-          <span className="text-sm truncate">{event.location}</span>
+          {/* Location */}
+          <div className="flex items-center text-brand-text-dim mb-6">
+            <MapPin className="w-5 h-5 mr-2 shrink-0" />
+            <span className="text-sm truncate">{event.location}</span>
+          </div>
         </div>
 
-        {/* View Details Button */}
+        {/* View Details Button - Fixed at bottom */}
         <Link
           to={`/event/${event.id}`}
           className="inline-block w-full text-center bg-brand-accent text-white py-3 px-6 rounded-full font-semibold hover:bg-brand-accent-dark transition-all duration-300 shadow-lg hover:shadow-custom-glow hover:scale-105"
