@@ -94,12 +94,12 @@ export default function WelcomePage() {
                 <span className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
                   <RotatingText
                     texts={["Next", "Magic", "Dream", "Prime", "Great"]}
-                    mainClassName="text-gradient overflow-hidden"
-                    staggerFrom={"last"}
+                    mainClassName="text-brand-accent"
+                    staggerFrom={"first"}
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
                     exit={{ y: "-120%" }}
-                    staggerDuration={0.03}
+                    staggerDuration={0.04}
                     auto={true}
                     elementLevelClassName="inline-block"
                     splitLevelClassName="overflow-hidden"
