@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BACKEND_API_URL = import.meta.env.VITE_BACKEND_API_URL;
+const BACKEND_API_URL = import.meta.env.VITE_BACKEND_HEROKU_URL;
 
 const api = axios.create({
   baseURL: `${BACKEND_API_URL}/api`,
