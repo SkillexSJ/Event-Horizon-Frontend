@@ -1,18 +1,28 @@
 import { createBrowserRouter } from "react-router";
+import { lazy, Suspense } from "react";
+
+// Layouts - Not lazy loaded (needed immediately for routing)
 import MainLayout from "../Layout/MainLayout.tsx";
-import DiscoverPage from "../Page/Discover/DiscoverPage.tsx";
-import EventDetailsPage from "../Page/EventDetailsPage.tsx";
-import MyBookingsPage from "../Page/Booking/MyBookingsPage.tsx";
 import DashboardLayout from "../Layout/DashboardLayout.tsx";
-import DashboardPage from "../Page/DashBoardPage.tsx";
-import AddEventPage from "../Page/AddEventPage.tsx";
 import AuthLayout from "../Layout/AuthLayout.tsx";
-import Signup from "../Page/Auth/Signup.tsx";
-import Login from "../Page/Auth/Login.tsx";
-import { PrivateRoute, HostRoute, PublicRoute } from "../Provider/PrivateRoute";
-import Home from "../Page/Home/Home.tsx";
 import WelcomePage from "../Layout/WelcomeLayout.tsx";
+
+// Route Guards - Not lazy loaded
+import { PrivateRoute, HostRoute, PublicRoute } from "../Provider/PrivateRoute";
+
+// Error Page & Loading - Not lazy loaded
 import ErrorPage from "../Page/Error/ErrorPage.tsx";
+import LoadingFallback from "../Components/LoadingFallback.tsx";
+
+// Lazy loaded pages
+const Home = lazy(() => import("../Page/Home/Home.tsx"));
+const DiscoverPage = lazy(() => import("../Page/Discover/DiscoverPage.tsx"));
+const EventDetailsPage = lazy(() => import("../Page/EventDetailsPage.tsx"));
+const MyBookingsPage = lazy(() => import("../Page/Booking/MyBookingsPage.tsx"));
+const DashboardPage = lazy(() => import("../Page/DashBoardPage.tsx"));
+const AddEventPage = lazy(() => import("../Page/AddEventPage.tsx"));
+const Signup = lazy(() => import("../Page/Auth/Signup.tsx"));
+const Login = lazy(() => import("../Page/Auth/Login.tsx"));
 
 export const router = createBrowserRouter([
   {
@@ -27,23 +37,35 @@ export const router = createBrowserRouter([
         path: "home",
         element: (
           <PrivateRoute>
-            <Home />
+            <Suspense fallback={<LoadingFallback />}>
+              <Home />
+            </Suspense>
           </PrivateRoute>
         ),
       },
       {
         path: "discover",
-        element: <DiscoverPage />,
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <DiscoverPage />
+          </Suspense>
+        ),
       },
       {
         path: "event/:id",
-        element: <EventDetailsPage />,
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <EventDetailsPage />
+          </Suspense>
+        ),
       },
       {
         path: "my-bookings",
         element: (
           <PrivateRoute>
-            <MyBookingsPage />
+            <Suspense fallback={<LoadingFallback />}>
+              <MyBookingsPage />
+            </Suspense>
           </PrivateRoute>
         ),
       },
@@ -59,11 +81,19 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <DashboardPage />,
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <DashboardPage />
+          </Suspense>
+        ),
       },
       {
         path: "add-event",
-        element: <AddEventPage />,
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <AddEventPage />
+          </Suspense>
+        ),
       },
     ],
   },
@@ -77,11 +107,19 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "signup",
-        element: <Signup />,
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <Signup />
+          </Suspense>
+        ),
       },
       {
         path: "login",
-        element: <Login />,
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <Login />
+          </Suspense>
+        ),
       },
     ],
   },
