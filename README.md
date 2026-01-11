@@ -1,73 +1,104 @@
-# React + TypeScript + Vite
+<div align="center">
+  <img
+    src="https://capsule-render.vercel.app/api?type=blur&height=250&color=gradient&text=Event%20Horizon&descAlign=7&animation=fadeIn&textBg=false"
+    alt="Event Horizon"
+  />
+  <h2>Client Application</h2>
+  <p><strong>Modern Event Discovery Experience</strong></p>
+  <p>The frontend for <strong>Event Horizon</strong>, built with <strong>React 19</strong>, <strong>Vite</strong>, and <strong>Tailwind CSS 4</strong>. It delivers a fast, responsive, and immersive experience for discovering and booking events.</p>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
+    
+  [![React](https://img.shields.io/badge/React-19-61DAFB.svg?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+  [![Vite](https://img.shields.io/badge/Vite-7.0-646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+  [![Tailwind](https://img.shields.io/badge/Tailwind-4.0-38B2AC.svg?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+  [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+</div>
 
-Currently, two official plugins are available:
+<br />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- **🎨 Modern Design System**: Built with Tailwind v4 for rapid, utility-first styling.
+- **📱 Responsive Layouts**: Mobile-first design ensuring great experience on all devices.
+- **⚡ High Performance**: Powered by Vite 7 for instant server starts and HMR.
+- **🔄 User Flows**:
+  - **Browse**: Filterable event lists.
+  - **Detailed View**: Rich event pages with image support.
+  - **Booking**: Seamless checkout process.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛍️ User Booking Flow
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```mermaid
+graph LR
+    A[Browse Events] --> B[Select Event]
+    B --> C[Choose Ticket]
+    C --> |Auth Check| D{LoggedIn?}
+    D -- No --> E[Login/Register]
+    D -- Yes --> F[Confirm Booking]
+    E --> F
+    F --> G[Booking Confirmed]
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📁 Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+<details>
+<summary>Click to view folder structure</summary>
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+Frontend/src/
+├── 📁 components/       # Reusable UI components
+│   ├── 📄 EventCard.tsx
+│   ├── 📄 Navbar.tsx
+│   └── 📄 Footer.tsx
+├── 📁 Page/             # Application Pages
+│   └── 📄 ...
+├── 📁 api/              # API Integration
+├── 📁 assets/           # Static assets
+└── 📄 App.tsx           # Main App Component
+```
+
+</details>
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js 18+**
+- **pnpm** (recommended) or npm/yarn
+
+### 1. Clone & Install
+
+```bash
+git clone https://github.com/yourusername/event-horizon-frontend.git
+cd Frontend
+pnpm install
+```
+
+### 2. Environment Configuration
+
+Create a `.env` file in the root directory:
+
+```env
+VITE_IMGBB_API_KEY=your_imgbb_api_key
+VITE_BACKEND_API_URL=http://localhost:3000
+```
+
+> **Note**: `VITE_BACKEND_API_URL` should point to your local backend or hosted Heroku URL.
+
+### 3. Run Locally
+
+```bash
+pnpm dev
+```
+
+The app will be available at `http://localhost:5173`.
+
+## 🌐 Deployment (Vercel)
+
+This project is configured for seamless deployment on Vercel.
+
+1.  **Import Project**: Connect your GitHub repository to Vercel.
+2.  **Environment Variables**: Add `VITE_BACKEND_API_URL` and `VITE_IMGBB_API_KEY` in the Vercel dashboard.
+3.  **Deploy**: Vercel will automatically build and deploy your React app.
