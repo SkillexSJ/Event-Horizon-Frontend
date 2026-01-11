@@ -28,6 +28,16 @@
   - **Detailed View**: Rich event pages with image support.
   - **Booking**: Seamless checkout process.
 
+## 🛠️ Tech Stack
+
+<div align="center">
+
+|                                               Framework                                                |                                              Tooling                                               |                                                      Styling                                                      |                                               Deployment                                               |
+| :----------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
+| <img src="https://skillicons.dev/icons?i=react" width="48" height="48" alt="React" /><br/>**React 19** | <img src="https://skillicons.dev/icons?i=vite" width="48" height="48" alt="Vite" /><br/>**Vite 7** | <img src="https://skillicons.dev/icons?i=tailwindcss" width="48" height="48" alt="Tailwind" /><br/>**Tailwind 4** | <img src="https://skillicons.dev/icons?i=vercel" width="48" height="48" alt="Vercel" /><br/>**Vercel** |
+
+</div>
+
 ## 🛍️ User Booking Flow
 
 ```mermaid
